@@ -1,0 +1,29 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "bdua",
+        "gdate",
+        "Lactio",
+        "libAccount",
+        "libAlert",
+        "libDashboard",
+        "Millis",
+        "OPTARG",
+        "ryone",
+        "usergroup",
+        "vname",
+        "workingcopy"
+    ],
+    "ignoreWords": [
+        "apitoken",
+        "gitops",
+        "ismy",
+        "WAPI",
+        "Jira",
+        "mem"
+    ],
+    "import": []
+}
