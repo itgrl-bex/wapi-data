@@ -84,7 +84,7 @@
                   "name": "A",
                   "query": "",
                   "secondaryAxis": false,
-                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                  "querybuilderSerialization": "{\"_v\":1,\"filters\":[[],\"and\"],\"functions\":[],\"metric\":\"ts()\"}",
                   "querybuilderEnabled": true,
                   "disabled": false,
                   "queryType": "WQL"
@@ -115,19 +115,26 @@
                 "fixedLegendShowMetricName": false,
                 "fixedLegendFilterLimit": 5,
                 "fixedLegendFilterField": "CURRENT",
-                "plainMarkdownContent": "# Variable Reference"
+                "plainMarkdownContent": "# Variable Reference\n\nTesting"
               },
               "chartAttributes": {
                 "lineFill": 1,
                 "dashboardLayout": {
-                  "x": 6,
-                  "y": 0,
                   "h": 5,
-                  "w": 6
+                  "w": 6,
+                  "x": 6,
+                  "y": 0
                 }
               },
               "noDefaultEvents": false,
-              "interpolatePoints": false
+              "summarization": "MEAN",
+              "interpolatePoints": false,
+              "anomalyDetectionOn": false,
+              "filterOutNonAnomalies": false,
+              "displayConfidenceBounds": false,
+              "anomalySampleSize": "8",
+              "anomalyType": "both",
+              "anomalySeverity": "medium"
             }
           ]
         }
@@ -858,7 +865,7 @@
       "label": "Deployment",
       "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
-        "Label": "cf-b0ceffb4b5bc54c1aae3"
+        "Label": "cf-04356558b404d8f4edb7"
       },
       "allowAll": false,
       "dynamicFieldType": "TAG_KEY",
@@ -872,9 +879,9 @@
   "displayDescription": false,
   "displaySectionTableOfContents": true,
   "displayQueryParameters": true,
-  "viewsLastDay": 1,
-  "viewsLastWeek": 1,
-  "viewsLastMonth": 5,
+  "viewsLastDay": 0,
+  "viewsLastWeek": 0,
+  "viewsLastMonth": 0,
   "acl": {
     "canView": [],
     "canModify": [
