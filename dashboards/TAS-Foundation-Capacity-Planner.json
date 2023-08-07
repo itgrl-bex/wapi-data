@@ -11,6 +11,7 @@
       "tas.tuning"
     ]
   },
+  "systemOwned": false,
   "customer": "mapbu-platform-services",
   "url": "TAS-Foundation-Capacity-Planner",
   "eventFilterType": "NONE",
@@ -30,19 +31,21 @@
                 {
                   "name": "A",
                   "query": "",
-                  "secondaryAxis": false,
-                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                  "queryType": "WQL",
                   "querybuilderEnabled": true,
+                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "markdown-widget",
                 "customTags": [],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
+                "plainMarkdownContent": "# Instructions\n\nThis dashboard does tale a while to load so be patient. There are a lot of hidden queries to process data for the display. \n\nThe data here is pulled from the data sent to Aria Operations for Applications and will evaluate based on an 8 day look back period.",
                 "lineType": "linear",
                 "windowing": "full",
                 "autoColumnTags": false,
@@ -61,8 +64,7 @@
                 "fixedLegendShowSourceName": true,
                 "fixedLegendShowMetricName": false,
                 "fixedLegendFilterLimit": 5,
-                "fixedLegendFilterField": "CURRENT",
-                "plainMarkdownContent": "# Instructions\n\nThis dashboard does tale a while to load so be patient. There are a lot of hidden queries to process data for the display. \n\nThe data here is pulled from the data sent to Aria Operations for Applications and will evaluate based on an 8 day look back period."
+                "fixedLegendFilterField": "CURRENT"
               },
               "chartAttributes": {
                 "lineFill": 1,
@@ -73,7 +75,6 @@
                   "w": 6
                 }
               },
-              "noDefaultEvents": false,
               "interpolatePoints": false
             },
             {
@@ -84,19 +85,21 @@
                 {
                   "name": "A",
                   "query": "",
-                  "secondaryAxis": false,
-                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                  "queryType": "WQL",
                   "querybuilderEnabled": true,
+                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "markdown-widget",
                 "customTags": [],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
+                "plainMarkdownContent": "# Variable Reference",
                 "lineType": "linear",
                 "windowing": "full",
                 "autoColumnTags": false,
@@ -115,8 +118,7 @@
                 "fixedLegendShowSourceName": true,
                 "fixedLegendShowMetricName": false,
                 "fixedLegendFilterLimit": 5,
-                "fixedLegendFilterField": "CURRENT",
-                "plainMarkdownContent": "# Variable Reference"
+                "fixedLegendFilterField": "CURRENT"
               },
               "chartAttributes": {
                 "lineFill": 1,
@@ -127,7 +129,6 @@
                   "w": 6
                 }
               },
-              "noDefaultEvents": false,
               "interpolatePoints": false
             }
           ]
@@ -150,19 +151,21 @@
                 {
                   "name": "A",
                   "query": "",
-                  "secondaryAxis": false,
-                  "querybuilderSerialization": "{\"_v\":1,\"filters\":[[],\"and\"],\"functions\":[],\"metric\":\"ts()\"}",
+                  "queryType": "WQL",
                   "querybuilderEnabled": true,
+                  "querybuilderSerialization": "{\"_v\":1,\"filters\":[[],\"and\"],\"functions\":[],\"metric\":\"ts()\"}",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "markdown-widget",
                 "customTags": [],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
+                "plainMarkdownContent": "# Diego Cell Scaling Information\n\nVMWare docs link\n[Diego Cell Key capacity scaling indicators](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/monitoring-key-cap-scaling.html)\n\n\n####\nThe chart to the right provides the recommended required memory to maintain the desired threshold with the expected growth.  The chart shows both the total memory and the amount to increase the foundation by, as well as the total number of diego cells and the number to increase by. ",
                 "lineType": "linear",
                 "windowing": "full",
                 "autoColumnTags": false,
@@ -181,8 +184,7 @@
                 "fixedLegendShowSourceName": true,
                 "fixedLegendShowMetricName": false,
                 "fixedLegendFilterLimit": 5,
-                "fixedLegendFilterField": "CURRENT",
-                "plainMarkdownContent": "# Diego Cell Scaling Information\n\nVMWare docs link\n[Diego Cell Key capacity scaling indicators](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/monitoring-key-cap-scaling.html)\n\n\n####\nThe chart to the right provides the recommended required memory to maintain the desired threshold with the expected growth.  The chart shows both the total memory and the amount to increase the foundation by, as well as the total number of diego cells and the number to increase by. "
+                "fixedLegendFilterField": "CURRENT"
               },
               "chartAttributes": {
                 "lineFill": 1,
@@ -193,7 +195,6 @@
                   "w": 7
                 }
               },
-              "noDefaultEvents": false,
               "summarization": "MEAN",
               "interpolatePoints": false,
               "anomalyDetectionOn": false,
@@ -212,168 +213,164 @@
                 {
                   "name": "ai_quota_mib",
                   "query": "sum(align(1m, ts(tas.rep.memory_quota, source=\"${source}\" and deployment=\"${deployment}\")), sources) / 1024 / 1024",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "AI Count",
                   "query": "sum(count(max(align(1m,ts(tas.rep.memory, source=\"${source}\"  and deployment=\"${deployment}\" and organization_name=\"${organization_name}\" and space_name=\"${space_name}\"))), sources, organization_name, space_name, app_name, instance_id), sources, organization_name, space_name, app_name)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_cells",
                   "query": "ts(tas.bbs.PresentCells and source=\"${source}\" and deployment=\"${deployment}\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_cell_total_mem_mib",
                   "query": "sum(align(60s, mean, ts(\"tas.rep.CapacityTotalMemory\", source=\"${source}\" and deployment=\"${deployment}\" and job=\"diego_cell\" and index=\"${a_index}\" and ip=\"${a_ip}\")))",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_allocated_mem_mib",
                   "query": "sum(align(1m, mean, mmax(${lookback},align(1m, ts(\"tas.rep.CapacityAllocatedMemory\", source=\"${source}\" and deployment=\"${deployment}\" and job=\"diego_cell\")))), sources)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_cell_mem_mib",
                   "query": "avg(align(1m, ts(\"tas.rep.CapacityTotalMemory\", source=\"${source}\" and deployment=\"${deployment}\" and job=\"diego_cell\" and index=\"${a_index}\" and ip=\"${a_ip}\")))",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_used_mem_mib",
                   "query": "sum(align(1m,mmax(${lookback}, align(1m,ts(tas.rep.ContainerUsageMemory, source=\"tmpe-clfn-n-03\" and deployment=\"${deployment}\" and job=\"diego_cell\")))))",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "expected_memory_mib",
                   "query": "(${diego_used_mem_mib} + (${ai_quota_mib} * ${growth_x_times})) / 1024",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_total_memory_mib",
                   "query": "aliasMetric(aliasSource((${diego_used_mem_mib} + ((${ai_quota_mib} * ${growth_x_times}))) / (${dc_threshold} / 100), \"${source}\"), \"Required Total Memory\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_mem_increase",
                   "query": "aliasMetric(aliasSource((${diego_used_mem_mib} + ((${ai_quota_mib} * ${growth_x_times} - ${ai_quota_mib}) )) / (${dc_threshold} / 100), \"${source}\"), \"Required Memory Increase\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_diego_cells",
                   "query": "aliasMetric(aliasSource(round(1, ${required_total_memory_mib} / ${diego_cell_mem_mib}), \"${source}\"), \"Required Total # of Diego Cells\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_diego_cell_increase",
                   "query": "aliasMetric(aliasSource(round(1, ${required_mem_increase} / ${diego_cell_mem_mib}), \"${source}\"), \"Required Diego Cells Increase\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_cell_mem_gib",
                   "query": "aliasMetric(aliasSource(round(2, ${diego_cell_mem_mib} / 1024 ), \"${source}\"), \"Memory per Diego Cel (GiB)\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_total_memory_gib",
                   "query": "aliasMetric(aliasSource( round(.5,(((${diego_used_mem_mib} + (${ai_quota_mib} * ${growth_x_times})) / (${dc_threshold} / 100)) / 1024 )), \"${source}\"), \"Required Total Memory (GiB)\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "required_mem_increase_gib",
                   "query": "aliasMetric(aliasSource( round(.5,(((${diego_used_mem_mib} + (${ai_quota_mib} * ${growth_x_times}) - ${ai_quota_mib}) / (${dc_threshold} / 100)) / 1024 )), \"${source}\"), \"Required Memory Increase (GiB)\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "current_diego_cells",
                   "query": "aliasMetric(aliasSource(sum(${diego_cells}), \"${source}\"), \"Current Diego Cells\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "diego_cell_allocated_mem_gib",
                   "query": "aliasMetric(aliasSource(round(.5, ${diego_cell_total_mem_mib}) / 1024, \"${source}\"), \"Current Memory (GiB)\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "sourceDescription": "",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "table",
                 "customTags": [],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
-                "sparklineValueColorMapApplyTo": "TEXT",
-                "sparklineDecimalPrecision": 0,
-                "sparklineValueTextMapText": [
-                  "new highest"
-                ],
                 "lineType": "linear",
                 "windowing": "full",
                 "showHosts": false,
@@ -402,7 +399,12 @@
                 "sparklineDisplayValueType": "VALUE",
                 "sparklineDisplayHorizontalPosition": "MIDDLE",
                 "sparklineDisplayFontSize": "100",
-                "sparklineSize": "BACKGROUND"
+                "sparklineSize": "BACKGROUND",
+                "sparklineValueColorMapApplyTo": "TEXT",
+                "sparklineDecimalPrecision": 0,
+                "sparklineValueTextMapText": [
+                  "new highest"
+                ]
               },
               "chartAttributes": {
                 "decimalPrecision": 0,
@@ -419,7 +421,6 @@
                 },
                 "y0ScaleDecimal": false
               },
-              "noDefaultEvents": false,
               "summarization": "LAST",
               "interpolatePoints": false,
               "anomalyDetectionOn": false,
@@ -449,19 +450,21 @@
                 {
                   "name": "A",
                   "query": "",
-                  "secondaryAxis": false,
-                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                  "queryType": "WQL",
                   "querybuilderEnabled": true,
+                  "querybuilderSerialization": "{\"_v\":1,\"metric\":\"ts()\",\"filters\":[[],\"and\"],\"functions\":[]}",
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "markdown-widget",
                 "customTags": [],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
+                "plainMarkdownContent": "# Go Router Scaling Information\n\nVMWare docs link\n\n[Gorouter performance scaling indicator](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/monitoring-key-cap-scaling.html#gorouter-performance-scaling-indicator-5)\n\n\nThere is not a benefit to verticle scaling past 8 CPUs.\n\n",
                 "lineType": "linear",
                 "windowing": "full",
                 "autoColumnTags": false,
@@ -480,8 +483,7 @@
                 "fixedLegendShowSourceName": true,
                 "fixedLegendShowMetricName": false,
                 "fixedLegendFilterLimit": 5,
-                "fixedLegendFilterField": "CURRENT",
-                "plainMarkdownContent": "# Go Router Scaling Information\n\nVMWare docs link\n\n[Gorouter performance scaling indicator](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/monitoring-key-cap-scaling.html#gorouter-performance-scaling-indicator-5)\n\n\nThere is not a benefit to verticle scaling past 8 CPUs.\n\n"
+                "fixedLegendFilterField": "CURRENT"
               },
               "chartAttributes": {
                 "lineFill": 1,
@@ -492,7 +494,6 @@
                   "w": 6
                 }
               },
-              "noDefaultEvents": false,
               "interpolatePoints": false
             },
             {
@@ -503,52 +504,53 @@
                 {
                   "name": "num_gorouters",
                   "query": "count(ts(tas.gorouter.numCPUS, source=\"tmpe-clfn-n-03\" and deployment=\"${deployment}\" and job=\"router\"), sources)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "num_cpu",
                   "query": "avg(ts(tas.gorouter.numCPUS, source=\"${source}\" and deployment=\"${deployment}\" and job=\"router\"), sources)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "memory",
                   "query": "avg(mmax(${lookback}, ts(tas.system_metrics_agent.system_mem_kb, source=\"tmpe-clfn-n-03\" and deployment=\"${deployment}\" and job=\"router\")), sources)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "cpu_usage",
                   "query": "avg(mmax(${lookback}, 100 - ts(tas.system_metrics_agent.system_cpu_idle, source=\"${source}\" and deployment=\"${deployment}\" and job=\"router\")), sources)",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": true,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "vertical",
                   "query": "aliasMetric(aliasSource(if(( ${cpu_usage} * ${growth_x_times} ) < ${gor_cpu_threshold}, ${num_cpu}, round(1,( ${cpu_usage} * ${growth_x_times} / ${gor_cpu_threshold} ) * ${num_cpu} )), \"{{source}}\"), \"Vertical Scaling of GoRouters MAX of 8\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 },
                 {
                   "name": "horizontal",
                   "query": "aliasMetric(aliasSource(${vertical}*${num_gorouters} / ${num_cpu}, \"{{source}}\"), \"Horisonal Scaling\")",
-                  "secondaryAxis": false,
+                  "queryType": "WQL",
                   "querybuilderEnabled": false,
                   "disabled": false,
-                  "queryType": "WQL"
+                  "secondaryAxis": false
                 }
               ],
+              "noDefaultEvents": false,
               "includeObsoleteMetrics": false,
               "chartSettings": {
                 "type": "table",
@@ -559,7 +561,6 @@
                 ],
                 "fixedLegendEnabled": false,
                 "fixedLegendUseRawStats": false,
-                "sparklineValueColorMapApplyTo": "TEXT",
                 "lineType": "linear",
                 "windowing": "full",
                 "showHosts": false,
@@ -588,7 +589,8 @@
                 "sparklineDisplayValueType": "VALUE",
                 "sparklineDisplayHorizontalPosition": "MIDDLE",
                 "sparklineDisplayFontSize": "100",
-                "sparklineSize": "BACKGROUND"
+                "sparklineSize": "BACKGROUND",
+                "sparklineValueColorMapApplyTo": "TEXT"
               },
               "chartAttributes": {
                 "dashboardLinks": {
@@ -612,7 +614,6 @@
                 },
                 "y0ScaleDecimal": false
               },
-              "noDefaultEvents": false,
               "summarization": "MEAN",
               "interpolatePoints": false,
               "anomalyDetectionOn": false,
@@ -662,210 +663,210 @@
     "http_rc_min_peak": {
       "defaultValue": "Label",
       "label": "HTTP RC per min peak",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "35000"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 6
     },
     "a_index": {
       "defaultValue": "Label",
       "label": "a_index",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "*"
       },
-      "allowAll": true,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "avg(ts(\"tas.system_metrics_agent.system_mem_percent\", source=\"${source}\" and deployment=\"${deployment}\" and job=\"diego_cell\"), index)",
       "hideFromView": true,
       "tagKey": "index",
+      "parameterType": "DYNAMIC",
+      "allowAll": true,
       "tagsBlackListRegex": ""
     },
     "a_ip": {
       "defaultValue": "Label",
       "label": "a_ip",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "*"
       },
-      "allowAll": true,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "sum(ts(\"tas.rep.CapacityRemainingMemory\", source=\"${source}\" and deployment=\"${deployment}\" and job=\"diego_cell\" and index=\"${a_index}\"), ip)",
       "hideFromView": true,
       "tagKey": "ip",
+      "parameterType": "DYNAMIC",
+      "allowAll": true,
       "tagsBlackListRegex": ""
     },
     "lookback": {
       "defaultValue": "Label",
       "label": "lookback",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "8d"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 3
     },
     "cc_worker_threshold": {
       "defaultValue": "Label",
       "label": "CC Memory Threshold",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "70"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 10
     },
     "organization_name": {
       "defaultValue": "Label",
       "label": "organization_name",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "*"
       },
-      "allowAll": true,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "ts(tas.rep.cpu, source=\"${source}\" and deployment=\"${deployment}\")",
       "hideFromView": true,
       "tagKey": "organization_name",
+      "parameterType": "DYNAMIC",
+      "allowAll": true,
       "tagsBlackListRegex": ""
     },
     "source": {
       "defaultValue": "Label",
       "label": "Foundation",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "clal_mirzasa"
       },
-      "allowAll": false,
       "dynamicFieldType": "SOURCE",
       "queryValue": "ts(\"tas.bosh-system-metrics-forwarder.system_healthy\")",
       "hideFromView": false,
       "tagKey": "",
+      "parameterType": "DYNAMIC",
+      "allowAll": false,
       "order": 1,
       "tagsBlackListRegex": ""
     },
     "growth_x_times": {
       "defaultValue": "Label",
       "label": "Expected Growth",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "3"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 4
     },
     "uaa_cpu_threshold": {
       "defaultValue": "Label",
       "label": "UAA CPU threshold",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "80"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 9
     },
     "app_name": {
       "defaultValue": "Label",
       "label": "app_name",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "*"
       },
-      "allowAll": true,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "align(1vw, first, ts(\"tas.rep.cpu\", source=\"${source}\" and deployment=\"${deployment}\" and organization_name=\"${organization_name}\" and space_name=\"${space_name}\"))",
       "hideFromView": true,
       "tagKey": "app_name",
+      "parameterType": "DYNAMIC",
+      "allowAll": true,
       "tagsBlackListRegex": ""
     },
     "dc_threshold": {
       "defaultValue": "Label",
       "label": "Diego Cell Threshold",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "70"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 7
     },
     "doppler_capacity_sec": {
       "defaultValue": "Label",
       "label": "Doppler Capacity sec",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "16000"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 12
     },
     "space_name": {
       "defaultValue": "Label",
       "label": "space_name",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "*"
       },
-      "allowAll": true,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "ts(tas.rep.cpu, source=\"${source}\" and deployment=\"${deployment}\" and organization_name=\"${organization_name}\")",
       "hideFromView": true,
       "tagKey": "space_name",
+      "parameterType": "DYNAMIC",
+      "allowAll": true,
       "tagsBlackListRegex": ""
     },
     "gor_cpu_threshold": {
       "defaultValue": "Label",
       "label": "GoRouter CPU ",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "60"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 8
     },
     "diego_brain_mem_threshold": {
       "defaultValue": "Label",
       "label": "Diego Brain mem ",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "70"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 11
     },
     "http_rc_min_exp": {
       "defaultValue": "Label",
       "label": "Expected HTTP RC",
-      "parameterType": "SIMPLE",
       "valuesToReadableStrings": {
         "Label": "70000"
       },
-      "allowAll": false,
       "hideFromView": false,
+      "parameterType": "SIMPLE",
+      "allowAll": false,
       "order": 5
     },
     "deployment": {
       "defaultValue": "Label",
       "label": "Deployment",
-      "parameterType": "DYNAMIC",
       "valuesToReadableStrings": {
         "Label": "cf-b0ceffb4b5bc54c1aae3"
       },
-      "allowAll": false,
       "dynamicFieldType": "TAG_KEY",
       "queryValue": "ts(tas.bbs.PresentCells and source=\"${source}\")",
       "hideFromView": false,
       "tagKey": "deployment",
+      "parameterType": "DYNAMIC",
+      "allowAll": false,
       "order": 2,
       "tagsBlackListRegex": ""
     }
@@ -885,6 +886,5 @@
     ]
   },
   "dashboardAttributes": null,
-  "orphan": false,
-  "systemOwned": false
+  "orphan": false
 }
