@@ -873,8 +873,8 @@
   "displayDescription": false,
   "displaySectionTableOfContents": true,
   "displayQueryParameters": true,
-  "viewsLastDay": 4,
-  "viewsLastWeek": 4,
+  "viewsLastDay": 0,
+  "viewsLastWeek": 0,
   "viewsLastMonth": 4,
   "acl": {
     "canView": [],
