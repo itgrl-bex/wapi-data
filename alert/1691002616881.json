@@ -1,126 +1,107 @@
 {
-  "status": {
-    "result": "OK",
-    "message": "",
-    "code": 200
-  },
-  "response": {
-    "tagpaths": [
-      "pcf",
-      "becca"
-    ],
-    "targetEndpoints": [],
-    "modifyAclAccess": true,
-    "name": "bee-test",
-    "id": "1691002616881",
-    "hidden": false,
-    "minutes": 5,
-    "targetInfo": [],
-    "deleted": false,
-    "service": [],
-    "createdEpochMillis": 1691002616881,
-    "updatedEpochMillis": 1691002616881,
-    "application": [],
-    "tags": {
-      "customerTags": [
-        "becca",
-        "pcf"
-      ]
-    },
-    "systemOwned": false,
-    "status": [
-      "CHECKING"
-    ],
-    "processRateMinutes": 5,
-    "acl": {
-      "canView": [],
-      "canModify": [
-        "514c3213-fee1-45bb-9f6a-45951444e537",
-        "1b8b71f6-efc2-4dd1-a8b0-976ecf0bc316"
-      ]
-    },
-    "created": 1691002616881,
-    "createUserId": "rerobinson+mapbu-platform-services@vmware.com",
-    "updated": 1691002616881,
-    "updateUserId": "rerobinson+mapbu-platform-services@vmware.com",
-    "inTrash": false,
-    "lastProcessedMillis": 1691002609672,
-    "pointsScannedAtLastQuery": 0,
-    "includeObsoleteMetrics": false,
-    "condition": "ts(tas.system_metrics_agent.system_healthy)",
-    "conditionQueryType": "WQL",
-    "displayExpression": "ts(tas.system_metrics_agent.system_healthy)",
-    "conditions": {
-      "warn": "ts(tas.system_metrics_agent.system_healthy) <= .6",
-      "severe": "ts(tas.system_metrics_agent.system_healthy) <= .5"
-    },
-    "creatorId": "rerobinson+mapbu-platform-services@vmware.com",
-    "updaterId": "rerobinson+mapbu-platform-services@vmware.com",
-    "displayExpressionQueryType": "WQL",
-    "alertSources": [
-      {
-        "name": "A",
-        "hidden": false,
-        "query": "ts(tas.system_metrics_agent.system_healthy)",
-        "description": "",
-        "queryType": "WQL",
-        "queryBuilderEnabled": false,
-        "queryBuilderSerialization": "{\"metricType\":\"m\",\"filters\":[[],\"and\"],\"functions\":[]}",
-        "alertSourceType": [
-          "CONDITION",
-          "AUDIT"
-        ]
-      }
-    ],
-    "resolveAfterMinutes": 5,
-    "targets": {},
-    "failingHostLabelPairs": [],
-    "querySyntaxError": false,
-    "inMaintenanceHostLabelPairs": [],
-    "prefiringHostLabelPairs": [],
-    "notificants": [],
-    "alertsLastDay": 0,
-    "alertsLastWeek": 0,
-    "alertsLastMonth": 0,
-    "alertType": "THRESHOLD",
-    "evaluateRealtimeData": false,
-    "secureMetricDetails": false,
-    "enablePDIncidentBySeries": false,
-    "chartSettings": {
-      "type": "line",
-      "customTags": [],
-      "fixedLegendEnabled": false,
-      "fixedLegendUseRawStats": false,
-      "lineType": "linear",
-      "windowing": "full",
-      "autoColumnTags": false,
-      "tagMode": "all",
-      "numTags": 4,
-      "y1Units": "",
-      "y0ScaleSIBy1024": false,
-      "y1ScaleSIBy1024": false,
-      "y0UnitAutoscaling": false,
-      "y1UnitAutoscaling": false,
-      "fixedLegendPosition": "RIGHT",
-      "fixedLegendDisplayStats": [
-        "CURRENT"
+  "activeMaintenanceWindows": [],
+  "alertSources": [
+    {
+      "alertSourceType": [
+        "CONDITION",
+        "AUDIT"
       ],
-      "fixedLegendFilterSort": "TOP",
-      "fixedLegendShowSourceName": true,
-      "fixedLegendShowMetricName": false,
-      "fixedLegendFilterLimit": 5,
-      "fixedLegendFilterField": "CURRENT"
-    },
-    "chartAttributes": {
-      "lineFill": 1
-    },
-    "orphan": false,
-    "failingHostLabelPairLinks": [],
-    "sortAttr": -160,
-    "severityList": [
-      "WARN",
-      "SEVERE"
+      "description": "",
+      "hidden": false,
+      "name": "A",
+      "query": "ts(tas.system_metrics_agent.system_healthy)",
+      "queryBuilderEnabled": false,
+      "queryBuilderSerialization": "{\"metricType\":\"m\",\"filters\":[[],\"and\"],\"functions\":[]}",
+      "queryType": "WQL"
+    }
+  ],
+  "alertType": "THRESHOLD",
+  "application": [],
+  "chartAttributes": {
+    "lineFill": 1
+  },
+  "chartSettings": {
+    "autoColumnTags": false,
+    "customTags": [],
+    "fixedLegendDisplayStats": [
+      "CURRENT"
     ],
-    "logQuery": {}
-  }
+    "fixedLegendEnabled": false,
+    "fixedLegendFilterField": "CURRENT",
+    "fixedLegendFilterLimit": 5,
+    "fixedLegendFilterSort": "TOP",
+    "fixedLegendPosition": "RIGHT",
+    "fixedLegendShowMetricName": false,
+    "fixedLegendShowSourceName": true,
+    "fixedLegendUseRawStats": false,
+    "lineType": "linear",
+    "numTags": 4,
+    "tagMode": "all",
+    "type": "line",
+    "windowing": "full",
+    "y0ScaleSIBy1024": false,
+    "y0UnitAutoscaling": false,
+    "y1ScaleSIBy1024": false,
+    "y1UnitAutoscaling": false,
+    "y1Units": ""
+  },
+  "condition": "ts(tas.system_metrics_agent.system_healthy)",
+  "conditionQueryType": "WQL",
+  "conditions": {
+    "severe": "ts(tas.system_metrics_agent.system_healthy) <= .5",
+    "warn": "ts(tas.system_metrics_agent.system_healthy) <= .6"
+  },
+  "deleted": false,
+  "displayExpression": "ts(tas.system_metrics_agent.system_healthy)",
+  "displayExpressionQueryType": "WQL",
+  "enablePDIncidentBySeries": false,
+  "evaluateRealtimeData": false,
+  "hidden": false,
+  "hostsUsed": [
+    "pcf-becca-wf-lab",
+    "azeem-h2o-tas",
+    "clal_mirzasa"
+  ],
+  "id": "1691002616881",
+  "inMaintenanceHostLabelPairs": [],
+  "inTrash": false,
+  "includeObsoleteMetrics": false,
+  "logQuery": {},
+  "metricsUsed": [
+    "tas.system_metrics_agent.system_healthy"
+  ],
+  "modifyAclAccess": true,
+  "name": "bee-test",
+  "notificants": [],
+  "orphan": false,
+  "processRateMinutes": 5,
+  "querySyntaxError": false,
+  "resolveAfterMinutes": 5,
+  "secureMetricDetails": false,
+  "service": [],
+  "severityList": [
+    "WARN",
+    "SEVERE"
+  ],
+  "sortAttr": -160,
+  "systemOwned": false,
+  "tagpaths": [
+    "githubissue.5",
+    "pcf",
+    "githubissue",
+    "becca",
+    "staged",
+    "published.alert"
+  ],
+  "tags": {
+    "customerTags": [
+      "becca",
+      "githubissue.5",
+      "pcf",
+      "published.alert"
+    ]
+  },
+  "targetEndpoints": [],
+  "targetInfo": [],
+  "targets": {}
 }
